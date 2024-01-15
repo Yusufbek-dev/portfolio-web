@@ -36,15 +36,7 @@ export default {
 
 <style scoped>
 
-:root {
-    --primary:#c72b3c;
-    --second-primary-color:#61CE70;
-    --third-primary-color:#06290d;
-    --second-color:#d8d8d8;
-    --text-color:#6E6E6E;
-    --dark-backround:#383838;
-    
-}
+
 
 header {
     position: sticky;
@@ -99,16 +91,16 @@ header {
 <template>
     <header>
         <div class="logo">
-            <router-link to="home">
-                <img src="../../images/yusuf.png" alt="logo">
-            </router-link>
+            <a href="home" >
+                Yusufbek.dev
+            </a>
         </div>
         <ul class="nav-list" ref="list">
             <li class="nav-list__item" @click="barClick">
                 <a to="home" class="link" href="#">Home</a>
             </li>
             <li class="nav-list__item" @click="barClick">
-                <a to="service" class="link">About</a>
+                <a href="service" class="link">About</a>
             </li>
             <li class="nav-list__item" @click="barClick">
                 <a to="contact" class="link" href="#">Portfolio</a>
@@ -140,14 +132,24 @@ export default {
 </script>
 
 <style scoped>
-
+:root {
+    --primary:#c72b3c;
+    --second-primary-color:#61CE70;
+    --third-primary-color:#06290d;
+    --second-color:#d8d8d8;
+    --text-color:#6E6E6E;
+    --dark-backround:#383838;
+    
+}
 header {
     position: sticky;
     top: 0px;
     width: 100vw;
     padding: 0 5%;
-    background:rgb(33, 33, 33, 0.9);
-    box-shadow: 0 0 10px wheat;
+    background:linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+              url('../../images/hairis-min.jpg') no-repeat top center;
+              background-size:cover;
+    /* box-shadow: 0 0 10px wheat; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -163,11 +165,6 @@ header {
     font-size: 1.3rem;
     transition: 0.2s;
     padding: 0 7px;
-}
-.nav-list__item:last-child {
-    background-color: #c72b3c;
-    padding: 0 8px;
-    border-radius: 15px;
 }
 a {
     font-family:"Poppins", sans-serif;
@@ -186,7 +183,7 @@ a {
     position: absolute;
     width: 0%;
     height: 3px;
-    background-color: #c72b3c;
+    background: linear-gradient(90deg, rgba(255,61,61,1) 0%, rgba(92,0,0,1) 100%, rgba(255,61,61,1) 100%);
 }
 .router-link-active::after {
     width: 100%;
@@ -201,9 +198,9 @@ a:hover::after {
     width: 100%;
 }
 .logo img{
-
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
 }
 
 .bar {
@@ -248,6 +245,7 @@ a:hover::after {
         height:87vh;
         flex-direction: column;
         justify-content: space-evenly;
+        align-items: center;
         transition: .3s ease all
     }
     .nav-list.active {
@@ -259,11 +257,12 @@ a:hover::after {
     }
     .nav-list__item {
         font-size: 2.5rem;
+        margin-left: 0;
     }
-    .nav-list__item:last-child {
+    /* .nav-list__item:last-child {
         width: 80vw;
         margin: 0 auto;
-    }
+    } */
 }
 @media (max-width:680px) {
     .nav-list {
